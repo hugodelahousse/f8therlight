@@ -166,6 +166,7 @@ public class GameController : MonoBehaviour
 			if (scene.buildIndex == 6)
 			{
 				score = 0;
+				lives = 1;
 				highScore = PlayerPrefs.GetInt(highScoreKey, 0);
 				StartCoroutine(EndlessScore());
 			}
