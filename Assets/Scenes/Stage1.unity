@@ -3384,20 +3384,12 @@ Prefab:
     - target: {fileID: 20443348011901540, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.y
-<<<<<<< HEAD
-      value: 0
-=======
       value: 0.1325737
->>>>>>> aeda3f3cd5a161dc7754e54704350c9e9173a79a
       objectReference: {fileID: 0}
     - target: {fileID: 20443348011901540, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.height
-<<<<<<< HEAD
-      value: 1
-=======
       value: 0.7348526
->>>>>>> aeda3f3cd5a161dc7754e54704350c9e9173a79a
       objectReference: {fileID: 0}
     - target: {fileID: 114679475438739226, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
