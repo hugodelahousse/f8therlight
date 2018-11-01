@@ -111,12 +111,15 @@ public class GameController : MonoBehaviour
 	{
 		lives--;
 		if (lives == 0) GameOver();
-		yield return new WaitForSeconds(3f);
-		if (player) Destroy(player);
-		player = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
+		else
+		{
+			yield return new WaitForSeconds(3f);
+			if (player) Destroy(player);
+			player = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
 
-		// Change this to some parent camera class
-		Camera.main.GetComponent<FollowPlayer>().ReassignPlayer();
+			// Change this to some parent camera class
+			Camera.main.GetComponent<FollowPlayer>().ReassignPlayer();
+		}
 	}
 
 	IEnumerator RestartGame()
