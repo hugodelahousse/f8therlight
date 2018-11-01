@@ -403,7 +403,6 @@ public class PlayerBehaviour : MovingEntity
 				}
 			}
 		}
-
 		else if (state == playerState.Diving)
 		{
 			ContactPoint2D[] contacts = collision.contacts;

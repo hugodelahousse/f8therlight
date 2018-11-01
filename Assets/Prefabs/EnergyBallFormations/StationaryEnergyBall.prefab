@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 95103844487695180}
   - component: {fileID: 58873438628954766}
   m_Layer: 0
-  m_Name: EnergyBall
+  m_Name: StationaryEnergyBall
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

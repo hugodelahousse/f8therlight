@@ -48,11 +48,6 @@ public class GameController : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			if (score > highScore)
-			{
-				PlayerPrefs.SetInt(highScoreKey, score);
-				PlayerPrefs.Save();
-			}
 			StopAllCoroutines();
 			lives = 3;
 			stage = 1;
@@ -117,6 +112,7 @@ public class GameController : MonoBehaviour
 			if (player) Destroy(player);
 			player = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
 
+			Debug.Log("shouldnt be here");
 			// Change this to some parent camera class
 			Camera.main.GetComponent<FollowPlayer>().ReassignPlayer();
 		}
@@ -124,6 +120,12 @@ public class GameController : MonoBehaviour
 
 	IEnumerator RestartGame()
 	{
+		if (endlessMode && score > highScore)
+		{
+			PlayerPrefs.SetInt(highScoreKey, score);
+			PlayerPrefs.Save();
+		}
+
 		Image gameOverText = GameObject.FindGameObjectWithTag("GameOverText").GetComponent<Image>();
 		gameOverText.enabled = true;
 
@@ -172,6 +174,7 @@ public class GameController : MonoBehaviour
 				lives = 1;
 				highScore = PlayerPrefs.GetInt(highScoreKey, 0);
 				StartCoroutine(EndlessScore());
+				endlessMode = true;
 			}
 		}
 	}

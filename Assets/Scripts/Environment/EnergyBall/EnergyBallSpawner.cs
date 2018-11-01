@@ -18,8 +18,9 @@ public class EnergyBallSpawner : MonoBehaviour
 		while (true)
 		{
 			yield return new WaitForSeconds(timeBetweenWaves);
-			GameObject wave = Instantiate(energyBallFormations[Random.Range(0, energyBallFormations.Length - 1)], energyBallPool);
+			GameObject wave = Instantiate(energyBallFormations[Random.Range(0, energyBallFormations.Length)], energyBallPool);
 			wave.transform.localPosition = transform.position;
+			Destroy(wave, 25f);
 		}
 	}
 }
