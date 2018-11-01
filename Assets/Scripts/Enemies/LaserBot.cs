@@ -66,6 +66,7 @@ public class LaserBot : MonoBehaviour
 			node1.MoveToTarget(playerTransform.position);
 			if (onlyOnce)
 			{
+				StopAllCoroutines();
 				StartCoroutine(SingleAttackPattern(node1));
 				Destroy(lineStatic.gameObject);
 				onlyOnce = false;
@@ -76,6 +77,7 @@ public class LaserBot : MonoBehaviour
 			node2.MoveToTarget(playerTransform.position);
 			if (onlyOnce)
 			{
+				StopAllCoroutines();
 				StartCoroutine(SingleAttackPattern(node2));
 				Destroy(lineStatic.gameObject);
 				onlyOnce = false;

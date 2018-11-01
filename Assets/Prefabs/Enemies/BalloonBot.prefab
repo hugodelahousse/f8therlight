@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4730743644381088}
-  - component: {fileID: 61761284948593506}
+  - component: {fileID: 58826604582155404}
   m_Layer: 0
-  m_Name: Balloon1
+  m_Name: Balloon1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,6 +43,22 @@ GameObject:
   - component: {fileID: 82433675546772570}
   m_Layer: 0
   m_Name: BalloonBot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1143768699481780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4936235891565518}
+  - component: {fileID: 58405986915843010}
+  m_Layer: 0
+  m_Name: Balloon1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +106,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4796022049543122}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4730743644381088
 Transform:
@@ -99,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1031809105560232}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4796022049543122}
@@ -112,10 +128,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1065400825751166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 171.8, y: 177.4, z: 0}
+  m_LocalPosition: {x: 86.4, y: 112.9, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4730743644381088}
+  - {fileID: 4936235891565518}
   - {fileID: 4609827880295140}
   - {fileID: 4814969628074844}
   m_Father: {fileID: 0}
@@ -132,7 +149,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4796022049543122}
-  m_RootOrder: 2
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4936235891565518
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143768699481780}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4796022049543122}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50721644366728882
 Rigidbody2D:
@@ -154,6 +184,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58405986915843010
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143768699481780}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4, y: 6}
+  serializedVersion: 2
+  m_Radius: 6
 --- !u!58 &58724766390780900
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -167,6 +212,21 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 6}
+  serializedVersion: 2
+  m_Radius: 6
+--- !u!58 &58826604582155404
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031809105560232}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -4, y: 5}
   serializedVersion: 2
   m_Radius: 6
 --- !u!61 &61556347922446670
@@ -193,31 +253,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 11.536362, y: 12.619431}
-  m_EdgeRadius: 0
---- !u!61 &61761284948593506
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1031809105560232}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 5.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 17.21, y: 11.3}
   m_EdgeRadius: 0
 --- !u!82 &82433675546772570
 AudioSource:
@@ -346,17 +381,54 @@ MonoBehaviour:
   knockback: 0.3
   DroneProjectilesPool: {fileID: 0}
   DroneGunOutputTransforms: {fileID: 4814969628074844}
-  collider1: {fileID: 61761284948593506}
-  collider2: {fileID: 58724766390780900}
+  colliders:
+  - {fileID: 58826604582155404}
+  - {fileID: 58405986915843010}
+  - {fileID: 58724766390780900}
   balloonPop: {fileID: 8300000, guid: c9c1f730374fd4e1d974ba4106561745, type: 3}
   Speed: 25
   distanceFromPlayer: 40
   FireRate: 3.75
   deathFallingRate: 1.5
   hoverAboveWaterLevel: 50
+  fallingJump:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.00039152615
+      value: 0.000074955635
+      inSlope: 40.615776
+      outSlope: 6.6219134
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.09159118
+    - serializedVersion: 3
+      time: 0.24922058
+      value: 1.004291
+      inSlope: 0.057377014
+      outSlope: -0.03280919
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.6754817
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.49888682
+      value: 0.9960997
+      inSlope: -0.03280919
+      outSlope: 0.030671801
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.87819415
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   GrenadePrefab: {fileID: 1900189208470846, guid: fca942c0e512ccd4bbf72c8211595f88,
     type: 2}
   DeathExplosion: {fileID: 1552372733183016, guid: 7aca5f3d814635d43ab7dc9c7528f850,
+    type: 2}
+  smallExplosion: {fileID: 1272360561372792, guid: 7162fbdd7dc5e6a468691c5495159dae,
     type: 2}
 --- !u!212 &212717710011080578
 SpriteRenderer:

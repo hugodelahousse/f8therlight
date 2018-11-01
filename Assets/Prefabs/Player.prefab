@@ -459,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c56e3c578719948a235b03cdbaa520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackMultiplier: 1
   velocityMax: {x: 300, y: 500}
   velocityIncrement: {x: 25, y: 35}
   walkingSpeed: 65
@@ -469,6 +470,7 @@ MonoBehaviour:
   electricWaterKnockback: 400
   bulletCollider: {fileID: 61619809826030198}
   vulnerableTime: 5
+  invulnerableTime: 1
   fallingFeathers: {fileID: 198650756607141062}
   deathStars: {fileID: 198799720282726602, guid: f86422304fcb4514d8e37ebb2aba662d,
     type: 2}

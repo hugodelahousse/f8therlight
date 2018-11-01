@@ -58,6 +58,9 @@ public class PlayerBehaviour : MovingEntity
 	private bool vulnerable = false;
 	public float vulnerableTime;
 
+	private bool invulnerable = false;
+	public float invulnerableTime;
+
 	private float currentTime;
 
 	[SerializeField] ParticleSystem fallingFeathers;
@@ -292,6 +295,11 @@ public class PlayerBehaviour : MovingEntity
 				fallingFeathers.Stop();
 				health = 2;
 			}
+
+			if (Time.time > currentTime + invulnerableTime)
+			{
+				invulnerable = false;
+			}
 		}
 
 		if (CheckWater(true))
@@ -312,22 +320,27 @@ public class PlayerBehaviour : MovingEntity
 
 	public void TakeDamage(int damage)
 	{
-		audioS.clip = hurt;
-		audioS.Play();
-		health -= damage;
-		if (health <= 0)
+		if (!invulnerable)
 		{
-			Death();
-			return;
+			audioS.clip = hurt;
+			audioS.Play();
+			health -= damage;
+			if (health <= 0)
+			{
+				Death();
+				return;
+			}
+			else
+			{
+				StartCoroutine(FlashSprite());
+			}
+
+			currentTime = Time.time;
+			invulnerable = true;
+			vulnerable = true;
+			anim.SetLayerWeight(1, 1);
+			fallingFeathers.Play();
 		}
-		else 
-		{
-			StartCoroutine(FlashSprite());
-		}
-		currentTime = Time.time;
-		vulnerable = true;
-		anim.SetLayerWeight(1, 1);
-		fallingFeathers.Play();
 	}
 
 	public void Death()
@@ -345,10 +358,10 @@ public class PlayerBehaviour : MovingEntity
 
 	IEnumerator FlashSprite()
 	{
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 10; i++)
 		{
 			sprite.enabled = !sprite.enabled;
-			yield return new WaitForSeconds(0.01f);
+			yield return new WaitForSeconds(invulnerableTime / 10f);
 		}
 	}
 
@@ -400,7 +413,7 @@ public class PlayerBehaviour : MovingEntity
 			{
 				Vector2 knockbackDirection = Vector2.Reflect(-collision.relativeVelocity, contacts[0].normal);
 
-				rb.AddForce(knockbackDirection * knockback, ForceMode2D.Impulse);
+				rb.AddForce(knockbackDirection * knockback * enemy.knockbackMultiplier, ForceMode2D.Impulse);
 
 				enemy.divedOnto(collision);
 
@@ -417,6 +430,9 @@ public class PlayerBehaviour : MovingEntity
 		}
 		else if (collision.CompareTag("ElectricField"))
 		{
+			Vector3 knockbackDirection = (transform.position - collision.gameObject.transform.position).normalized;
+			rb.AddForce(knockbackDirection * 200 * knockback, ForceMode2D.Impulse);
+
 			audioS.clip = shock;
 			audioS.Play();
 

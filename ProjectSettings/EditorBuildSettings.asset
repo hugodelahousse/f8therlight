@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage4.unity
     guid: afa745f7130fd41f78044a466e89d626
+  - enabled: 1
+    path: Assets/Scenes/EndlessMode.unity
+    guid: 84a9e453eca61734f8cca539a6132cd7
   m_configObjects: {}

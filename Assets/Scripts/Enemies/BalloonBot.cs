@@ -14,9 +14,7 @@ public class BalloonBot : MovingEntity
 	private Transform DroneGunOutputTransforms;
 	private Animator DroneAnimator;
 	[SerializeField]
-	private BoxCollider2D collider1;
-	[SerializeField]
-	private CircleCollider2D collider2;
+	private CircleCollider2D[] colliders = new CircleCollider2D[3];
 	[SerializeField]
 	private AudioClip balloonPop;
 
@@ -40,6 +38,7 @@ public class BalloonBot : MovingEntity
 	[SerializeField]
 	private float hoverAboveWaterLevel;
 	private bool facingLeft;
+	public AnimationCurve fallingJump;
 	#endregion
 
 	[Header("Prefabs")]
@@ -48,6 +47,8 @@ public class BalloonBot : MovingEntity
 	private GameObject GrenadePrefab;
 	[SerializeField]
 	private GameObject DeathExplosion;
+	[SerializeField]
+	private GameObject smallExplosion;
 	#endregion
 
 	void Start()
@@ -139,7 +140,7 @@ public class BalloonBot : MovingEntity
 		health = 0;
 		StopAllCoroutines();
 		DroneAnimator.SetTrigger("Death");
-		collider2.enabled = collider1.enabled = GetComponent<BoxCollider2D>().enabled = false;
+		colliders[0].enabled = colliders[1].enabled = colliders[2].enabled = GetComponent<BoxCollider2D>().enabled = false;
 		rb.velocity = Vector2.zero;
 		StartCoroutine(DeathFalling());
 	}
@@ -148,8 +149,8 @@ public class BalloonBot : MovingEntity
 	IEnumerator WaitForColliderSwitch()
 	{
 		yield return new WaitForSeconds(0.1f);
-		collider1.enabled = false;
-		collider2.enabled = true;
+		colliders[0].enabled = colliders[1].enabled = false;
+		colliders[2].enabled = true;
 	}
 
 	IEnumerator ShootLoop()
@@ -174,20 +175,32 @@ public class BalloonBot : MovingEntity
 
 	IEnumerator DeathFalling()
 	{
-		// follow animation curve ? 
+		Vector3 start = transform.position;
 		float t = 0;
+		while (t < 0.5f)
+		{
+			transform.position = start + Vector3.up * 20 * fallingJump.Evaluate(t); //Vector3.up * 2 * Mathf.Sin(t * 2.5f * Mathf.PI);
+			t += Time.deltaTime;
+			yield return null;
+		}
+
 		while (true)
 		{
 			transform.position += Vector3.down * deathFallingRate;
-			t += Time.deltaTime;
 			yield return null;
 		}
 	}
 
 	override public void divedOnto(Collision2D collision)
 	{
-		rb.AddForce(-collision.relativeVelocity * knockback, ForceMode2D.Impulse);
-		TakeDamage();
+		if ((collision.collider == colliders[0] || collision.collider == colliders[1] && health == 2) ||
+			(collision.collider == colliders[2]))
+		{
+			Instantiate(smallExplosion, transform.position + (Vector3)collision.collider.offset, Quaternion.identity);
+
+			rb.AddForce(-collision.relativeVelocity * knockback, ForceMode2D.Impulse);
+			TakeDamage();
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
