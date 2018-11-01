@@ -4009,7 +4009,7 @@ Prefab:
     - target: {fileID: 114968994764183754, guid: 73c784db71064ba4c80ebed6a5078714,
         type: 2}
       propertyPath: mute
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 82346649291929242, guid: 73c784db71064ba4c80ebed6a5078714,
         type: 2}

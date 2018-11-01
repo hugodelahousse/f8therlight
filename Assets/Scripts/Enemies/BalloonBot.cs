@@ -58,7 +58,7 @@ public class BalloonBot : MovingEntity
 		DroneAnimator = GetComponent<Animator>();
 		audioS = GetComponent<AudioSource>();
 
-		//StartCoroutine(ShootLoop());
+		StartCoroutine(ShootLoop());
 	}
 
 	void Update()
