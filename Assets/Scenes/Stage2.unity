@@ -978,6 +978,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114646719932017900, guid: 8fe26a9eafc8e40188570f37ac87fbf1,
+        type: 2}
+      propertyPath: maxDistance
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe26a9eafc8e40188570f37ac87fbf1, type: 2}
   m_IsPrefabAsset: 0
@@ -3439,7 +3444,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 148
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300004, guid: e30ac939d9fcc4d81b26978fea8dc534, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3667,12 +3672,12 @@ Prefab:
     - target: {fileID: 20443348011901540, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.17453605
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 20443348011901540, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.6509279
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114679475438739226, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
@@ -3712,12 +3717,12 @@ Prefab:
     - target: {fileID: 20443348011901540, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.2934124
       objectReference: {fileID: 0}
     - target: {fileID: 20443348011901540, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.41317526
       objectReference: {fileID: 0}
     - target: {fileID: 114679475438739226, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
@@ -3994,6 +3999,10 @@ Prefab:
     - target: {fileID: 4419755840932174, guid: 6382d3ffd36474f46b2fb1f96640ed33, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008839766222204, guid: 6382d3ffd36474f46b2fb1f96640ed33, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -56.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6382d3ffd36474f46b2fb1f96640ed33, type: 2}
@@ -6161,6 +6170,16 @@ Prefab:
       propertyPath: m_Name
       value: fog2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114616360790328768, guid: 34c40e3ab73f1674caed76224a3ca000,
+        type: 2}
+      propertyPath: translateSpeed
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114288072941838914, guid: 34c40e3ab73f1674caed76224a3ca000,
+        type: 2}
+      propertyPath: scrollSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34c40e3ab73f1674caed76224a3ca000, type: 2}
   m_IsPrefabAsset: 0
@@ -7275,6 +7294,11 @@ Prefab:
     - target: {fileID: 1265142412353064, guid: 54dd5db6858136b4e91be6ef340de162, type: 2}
       propertyPath: m_Name
       value: fog1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114735888975961856, guid: 54dd5db6858136b4e91be6ef340de162,
+        type: 2}
+      propertyPath: translateSpeed
+      value: -0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54dd5db6858136b4e91be6ef340de162, type: 2}
