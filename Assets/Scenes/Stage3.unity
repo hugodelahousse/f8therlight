@@ -3378,7 +3378,7 @@ Prefab:
     - target: {fileID: 114616360790328768, guid: 34c40e3ab73f1674caed76224a3ca000,
         type: 2}
       propertyPath: translateSpeed
-      value: -1
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 114288072941838914, guid: 34c40e3ab73f1674caed76224a3ca000,
         type: 2}
@@ -7500,6 +7500,11 @@ Prefab:
         type: 2}
       propertyPath: knockbackMultiplier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114646719932017900, guid: 8fe26a9eafc8e40188570f37ac87fbf1,
+        type: 2}
+      propertyPath: maxDistance
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe26a9eafc8e40188570f37ac87fbf1, type: 2}
