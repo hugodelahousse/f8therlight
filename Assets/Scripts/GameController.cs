@@ -94,7 +94,7 @@ public class GameController : MonoBehaviour
 		// show win text
 		canvasReferences.statusText.StartCoroutine(canvasReferences.statusText.ShowSprite(2, 5f));
 
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(8f);
 
 		StartCoroutine(RestartGame());
 	}
