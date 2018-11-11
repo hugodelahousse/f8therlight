@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 61930232905694216}
   - component: {fileID: 82786394375786526}
   - component: {fileID: 58618240853790010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: button_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 61077229493830294}
   - component: {fileID: 82140430390972602}
   - component: {fileID: 58326237774110228}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: button_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 61213330629284398}
   - component: {fileID: 82664697484149134}
   - component: {fileID: 58078469810646028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: button_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -973,6 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9adc5a2f371b64196f381ba4a9fd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackMultiplier: 1
   pressedSprite: {fileID: 21300002, guid: 58fa21695ebde4e509fce0a76d000c4b, type: 3}
   parentCoil: {fileID: 114308629627265646}
   pressedParticles: {fileID: 0}
@@ -991,6 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9adc5a2f371b64196f381ba4a9fd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackMultiplier: 1
   pressedSprite: {fileID: 21300002, guid: 58fa21695ebde4e509fce0a76d000c4b, type: 3}
   parentCoil: {fileID: 114308629627265646}
   pressedParticles: {fileID: 0}
@@ -1009,6 +1011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9adc5a2f371b64196f381ba4a9fd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackMultiplier: 1
   pressedSprite: {fileID: 21300002, guid: 58fa21695ebde4e509fce0a76d000c4b, type: 3}
   parentCoil: {fileID: 114308629627265646}
   pressedParticles: {fileID: 0}
