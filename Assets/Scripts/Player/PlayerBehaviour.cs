@@ -70,6 +70,8 @@ public class PlayerBehaviour : MovingEntity
 	[SerializeField] ParticleSystem staticParticles1;
 	[SerializeField] ParticleSystem staticParticles2;
 
+	[SerializeField] ParticleSystem exclamationPoint;
+
 	[SerializeField] DashAbility dash;
 
 	[SerializeField] WaterEffect waterEffect;
@@ -96,6 +98,10 @@ public class PlayerBehaviour : MovingEntity
 	public GameObject[] livesImages;
 
 	public playerState state;
+
+	public bool nearMissEnter;
+
+	bool deathOnce = false;
 
 	#endregion
 
@@ -286,6 +292,14 @@ public class PlayerBehaviour : MovingEntity
 		anim.SetBool("Dashing", state == playerState.Dashing);
 		anim.SetBool("Floating", state == playerState.Floating);
 
+		if (!GameController.instance.endlessMode && GameController.instance.timer == 0 && !deathOnce)
+		{
+			// set lives so you don't respawn
+			GameController.instance.lives = 1;
+			Death();
+			deathOnce = true;
+		}
+
 		if (vulnerable)
 		{
 			if (Time.time > currentTime + vulnerableTime)
@@ -424,6 +438,8 @@ public class PlayerBehaviour : MovingEntity
 	{
 		if (collision.CompareTag("Bullet"))
 		{
+			nearMissEnter = false;
+
 			TakeDamage(1);
 			Destroy(collision.gameObject);
 		}
@@ -442,6 +458,21 @@ public class PlayerBehaviour : MovingEntity
 		else if (collision.CompareTag("BossEntrance"))
 		{
 			GameController.instance.LoadScene(0);
+		}
+
+		if (collision.CompareTag("NearMiss"))
+		{
+			nearMissEnter = true;
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (nearMissEnter && collision.CompareTag("NearMiss"))
+		{
+			exclamationPoint.Play();
+			GameController.instance.OnNearMiss();
+			Destroy(collision.GetComponent<Collider2D>());
 		}
 	}
 }

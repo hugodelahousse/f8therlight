@@ -32,6 +32,8 @@ public class LaserBotNode : MovingEntity
 
 	public void Death()
 	{
+		GameController.instance.OnLaserBotKill();
+
 		Instantiate(parent.explosion, transform.position, Quaternion.identity);
 		parent.StopAllCoroutines();
 		Destroy(gameObject);

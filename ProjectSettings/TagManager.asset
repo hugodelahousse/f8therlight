@@ -10,6 +10,8 @@ TagManager:
   - BossEntrance
   - SpawnPoint
   - GameOverText
+  - NearMiss
+  - Canvas
   layers:
   - Default
   - TransparentFX

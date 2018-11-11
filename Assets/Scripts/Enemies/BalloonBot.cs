@@ -137,6 +137,8 @@ public class BalloonBot : MovingEntity
 
 	void Death()
 	{
+		GameController.instance.OnBalloonBotKill();
+		
 		health = 0;
 		StopAllCoroutines();
 		DroneAnimator.SetTrigger("Death");

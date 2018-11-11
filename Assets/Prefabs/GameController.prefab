@@ -60,7 +60,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -257,6 +257,14 @@ MonoBehaviour:
   camOffset: {x: 0, y: 0}
   scoreIncrement: 1
   scoreRate: 1
+  nearMissIncrement: 5
+  buttonIncrement: 10
+  balloonBotIncrement: 10
+  laserBotIncrement: 10
+  pacifistRunBonus: 200
+  livesBonus: 10
+  pacifistRun: 1
+  timer: 500
 --- !u!114 &114968994764183754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,5 +278,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aboveWaterSong: {fileID: 82346649291929242}
   underWaterSong: {fileID: 82492794138829332}
-  mute: 0
+  mute: 1
   trackingPlayer: 1

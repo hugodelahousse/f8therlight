@@ -36,6 +36,8 @@ public class TeslaCoil : MonoBehaviour
 
 	public void CheckActiveState()
 	{
+		GameController.instance.OnButtonPress();
+
 		anim.SetTrigger("attacked");
 		active = true;
 		foreach (TeslaCoilButton tButton in buttons)
@@ -54,6 +56,8 @@ public class TeslaCoil : MonoBehaviour
 			electrifyWater.Stop();
 			waterStatic.Stop();
 			waterStatic2.Stop();
+
+			GameController.instance.OnWaterClear();
 		}
 	}
 }
