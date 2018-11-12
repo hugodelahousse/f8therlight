@@ -14,6 +14,10 @@ public class GameController : MonoBehaviour
 	[HideInInspector]
 	public float animline;
 	public int score = 0;
+	//int instantScore = 0;
+	[HideInInspector]
+	public bool finishedCounting;
+
 	public int highScore = 0;
 
 	public int stage = 1;
@@ -85,16 +89,21 @@ public class GameController : MonoBehaviour
 
 	IEnumerator Win()
 	{
-		EndLevelBonuses();
-
 		StopCoroutine(timerCoroutine);
 
 		yield return new WaitForSeconds(3f);
-		
-		// show win text
-		canvasReferences.statusText.StartCoroutine(canvasReferences.statusText.ShowSprite(2, 5f));
 
-		yield return new WaitForSeconds(8f);
+		finishedCounting = false;
+
+		EndLevelBonuses();
+
+		// wait for score counter to finish
+		while (!finishedCounting) yield return null;
+
+		// show win text
+		canvasReferences.statusText.StartCoroutine(canvasReferences.statusText.ShowSprite(2, 2f));
+
+		yield return new WaitForSeconds(2f);
 
 		StartCoroutine(RestartGame());
 	}
@@ -247,6 +256,7 @@ public class GameController : MonoBehaviour
 	// Canvas and score bonuses
 	public void OnNearMiss()
 	{
+		canvasReferences.scoreBoard.StartCoroutine(canvasReferences.scoreBoard.ScoreIncrease(score, nearMissIncrement));
 		score += nearMissIncrement;
 		canvasReferences.displayText.StartCoroutine(canvasReferences.displayText.DisplayItem(0));
 	}
@@ -254,6 +264,7 @@ public class GameController : MonoBehaviour
 	public void OnBalloonBotKill()
 	{
 		if (pacifistRun) pacifistRun = false;
+		canvasReferences.scoreBoard.StartCoroutine(canvasReferences.scoreBoard.ScoreIncrease(score, balloonBotIncrement));
 		score += balloonBotIncrement;
 		canvasReferences.displayText.StartCoroutine(canvasReferences.displayText.DisplayItem(1));
 	}
@@ -261,30 +272,36 @@ public class GameController : MonoBehaviour
 	public void OnLaserBotKill()
 	{
 		if (pacifistRun) pacifistRun = false;
+		canvasReferences.scoreBoard.StartCoroutine(canvasReferences.scoreBoard.ScoreIncrease(score, laserBotIncrement));
 		score += laserBotIncrement;
 		canvasReferences.displayText.StartCoroutine(canvasReferences.displayText.DisplayItem(2));
 	}
 
 	public void OnButtonPress()
-	{ 
+	{
+		canvasReferences.scoreBoard.StartCoroutine(canvasReferences.scoreBoard.ScoreIncrease(score, buttonIncrement));
 		score += buttonIncrement;
 		canvasReferences.displayText.StartCoroutine(canvasReferences.displayText.DisplayItem(3));
 	}
 
 	public void OnWaterClear()
 	{
-		canvasReferences.statusText.StartCoroutine(canvasReferences.statusText.ShowSprite(0, 3f));
+		// show text only on first stage
+		if (SceneManager.GetActiveScene().buildIndex == 2)
+			canvasReferences.statusText.StartCoroutine(canvasReferences.statusText.ShowSprite(0, 3f));
 	}
 
 	public void EndLevelBonuses()
 	{
 		// time bonus
+		canvasReferences.scoreBoard.StartCoroutine(canvasReferences.scoreBoard.ScoreIncrease(score, timer));
 		score += timer;
 		canvasReferences.displayText.StartCoroutine(canvasReferences.displayText.DisplayItem(4));
 
 		// pacifist bonus
 		if (pacifistRun)
-		{ 
+		{
+			canvasReferences.scoreBoard.StartCoroutine(canvasReferences.scoreBoard.ScoreIncrease(score, pacifistRunBonus));
 			score += pacifistRunBonus;
 			canvasReferences.displayText.StartCoroutine(canvasReferences.displayText.DisplayItem(5));
 		}
@@ -292,6 +309,7 @@ public class GameController : MonoBehaviour
 		// lives bonus
 		if (lives * livesBonus != 0)
 		{
+			canvasReferences.scoreBoard.StartCoroutine(canvasReferences.scoreBoard.ScoreIncrease(score, lives * livesBonus));
 			score += lives * livesBonus;
 			canvasReferences.displayText.StartCoroutine(canvasReferences.displayText.DisplayItem(6));
 		}

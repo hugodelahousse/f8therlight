@@ -805,11 +805,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224377819569279248, guid: 766780e5be890af4eb1216fd9e111400,
+    - target: {fileID: 223612491913133172, guid: 766780e5be890af4eb1216fd9e111400,
         type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 256
-      objectReference: {fileID: 0}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 174765855}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766780e5be890af4eb1216fd9e111400, type: 2}
   m_IsPrefabAsset: 0
@@ -3668,12 +3668,12 @@ Prefab:
     - target: {fileID: 20443348011901540, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.31565994
+      value: 0.09758371
       objectReference: {fileID: 0}
     - target: {fileID: 20443348011901540, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.36868012
+      value: 0.8048326
       objectReference: {fileID: 0}
     - target: {fileID: 114679475438739226, guid: 8e505584c99e8424499357a4435f1535,
         type: 2}
@@ -4222,7 +4222,7 @@ Prefab:
     - target: {fileID: 114968994764183754, guid: 73c784db71064ba4c80ebed6a5078714,
         type: 2}
       propertyPath: mute
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114087498432306762, guid: 73c784db71064ba4c80ebed6a5078714,
         type: 2}
