@@ -11,14 +11,15 @@ public class LinearMovement : EnergyBall
 	float position = 0;
 	Vector3 origin;
 
-	private void Start()
+	public override void Start()
 	{
-		
+		base.Start();
 		origin = transform.position;	
 	}
 
-	void Update () 
+	public override void Update () 
 	{
+		base.Update();
 		position += Time.deltaTime * speed;
 		transform.position = origin + new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * (Mathf.PingPong(position, length) - length / 2);
 	}
@@ -26,7 +27,9 @@ public class LinearMovement : EnergyBall
 	private void OnDrawGizmosSelected()
 	{	
 		Gizmos.color = Color.white;
-		Gizmos.DrawLine(transform.position - new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * length / 2, 
+		if (Application.isPlaying) Gizmos.DrawLine(origin - new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * length / 2,
+			 origin + new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * length / 2);
+		else Gizmos.DrawLine(transform.position - new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * length / 2, 
 			transform.position + new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * length / 2);
 	}
 }

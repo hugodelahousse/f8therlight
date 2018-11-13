@@ -10,10 +10,11 @@ public class EnergyBall : MonoBehaviour
 	ParticleSystem laserParticles;
 	BoxCollider2D laserTrigger;
 	
-	void Start () 
+	public virtual void Start () 
 	{
 		if (!partnerBall) return;
 
+		Debug.Log("partner");
 		GameObject newLaser = Instantiate(laser, transform);
 
 		laserParticles = newLaser.GetComponent<ParticleSystem>();
@@ -23,7 +24,7 @@ public class EnergyBall : MonoBehaviour
 		laserTrigger.enabled = true;
 	}
 
-	void Update()
+	public virtual void Update()
 	{
 		if (!partnerBall) return;
 
