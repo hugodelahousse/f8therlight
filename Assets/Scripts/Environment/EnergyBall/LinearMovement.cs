@@ -6,24 +6,27 @@ public class LinearMovement : MonoBehaviour
 {
 	public float length;
 	public float speed;
+	public float angle;
 
 	float position = 0;
 	Vector3 origin;
 
 	private void Start()
 	{
+		
 		origin = transform.position;	
 	}
 
 	void Update () 
 	{
 		position += Time.deltaTime * speed;
-		transform.position = origin + Vector3.up * (Mathf.PingPong(position, length) - length / 2);
+		transform.position = origin + new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * (Mathf.PingPong(position, length) - length / 2);
 	}
 
 	private void OnDrawGizmosSelected()
-	{
-		Gizmos.color = Color.red;
-		Gizmos.DrawLine(transform.position - Vector3.up * length / 2, transform.position + Vector3.up * length / 2);
+	{	
+		Gizmos.color = Color.white;
+		Gizmos.DrawLine(transform.position - new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * length / 2, 
+			transform.position + new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * length / 2);
 	}
 }
