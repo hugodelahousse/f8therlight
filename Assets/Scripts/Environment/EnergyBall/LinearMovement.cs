@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LinearMovement : MonoBehaviour 
+public class LinearMovement : EnergyBall 
 {
 	public float length;
 	public float speed;

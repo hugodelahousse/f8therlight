@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212327273835715540}
   - component: {fileID: 95103844487695180}
   - component: {fileID: 58873438628954766}
+  - component: {fileID: 114920179981264062}
   m_Layer: 0
   m_Name: StationaryEnergyBall
   m_TagString: Bullet
@@ -75,6 +76,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114920179981264062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282329949187378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b37c2f1c78b7b4eaa14e7930de5d1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partnerBall: {fileID: 0}
+  laser: {fileID: 1095858020537630, guid: dd70ae0e510c946bba021d4f00cd8623, type: 2}
 --- !u!212 &212327273835715540
 SpriteRenderer:
   m_ObjectHideFlags: 1

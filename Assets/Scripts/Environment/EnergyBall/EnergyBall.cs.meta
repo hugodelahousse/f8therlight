@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 10b37c2f1c78b7b4eaa14e7930de5d1a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - partnerBall: {instanceID: 0}
+  - laser: {fileID: 198422726123502168, guid: dd70ae0e510c946bba021d4f00cd8623, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

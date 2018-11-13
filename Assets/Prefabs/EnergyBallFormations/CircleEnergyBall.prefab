@@ -87,6 +87,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493ea960eeeebdc419502246bf69d188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partnerBall: {fileID: 0}
+  laser: {fileID: 1095858020537630, guid: dd70ae0e510c946bba021d4f00cd8623, type: 2}
   radius: 45
   speed: 1
 --- !u!212 &212515129616177442

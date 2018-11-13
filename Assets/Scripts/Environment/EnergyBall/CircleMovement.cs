@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleMovement : MonoBehaviour 
+public class CircleMovement : EnergyBall 
 {
 	public float radius;
 	public float speed;

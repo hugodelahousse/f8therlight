@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60dc07ff7adbc04f9801f7818f5bf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackMultiplier: 1
   parent: {fileID: 114646719932017900}
   circleStatic: {fileID: 198464578272018552}
   trigger: {fileID: 58006819027632476}
@@ -452,6 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60dc07ff7adbc04f9801f7818f5bf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackMultiplier: 1
   parent: {fileID: 114646719932017900}
   circleStatic: {fileID: 198096128353524884}
   trigger: {fileID: 58976597984621332}
